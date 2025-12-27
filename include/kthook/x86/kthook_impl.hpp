@@ -85,7 +85,6 @@ inline bool create_trampoline(std::uintptr_t hook_address,
     };
 
     std::size_t trampoline_size = 0;
-    std::size_t op_copy_size = 0;
     void* op_copy_src = nullptr;
     std::uintptr_t current_address = hook_address;
     std::uintptr_t max_jmp_ref = 0;

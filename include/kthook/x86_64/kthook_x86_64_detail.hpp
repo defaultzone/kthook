@@ -839,7 +839,7 @@ inline struct JumpAllocator : Xbyak::Allocator {
         return reinterpret_cast<uint8_t*>(ptr);
     }
 
-    void free(uint8_t* p) override {
+    void free(uint8_t*) override {
     }
 
     bool useProtect() const override { return false; }

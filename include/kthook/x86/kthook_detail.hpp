@@ -156,7 +156,6 @@ struct signal_relay_generator;
 template <typename HookPtrType, typename Ret, typename... Args>
 struct signal_relay_generator<HookPtrType, traits::cconv::ccdecl, Ret, std::tuple<Args...>> {
     static Ret CCDECL relay(HookPtrType* this_hook, Args ... args) {
-        using source_t = Ret(CCDECL*)(Args ...);
         return signal_relay<HookPtrType, Ret, Args...>(this_hook, args...);
     }
 }; // namespace detail
@@ -164,7 +163,6 @@ struct signal_relay_generator<HookPtrType, traits::cconv::ccdecl, Ret, std::tupl
 template <typename HookPtrType, typename Ret, typename... Args>
 struct signal_relay_generator<HookPtrType, traits::cconv::cstdcall, Ret, std::tuple<Args...>> {
     static Ret CSTDCALL relay(HookPtrType* this_hook, Args ... args) {
-        using source_t = Ret(CSTDCALL*)(Args ...);
         return signal_relay<HookPtrType, Ret, Args...>(this_hook, args...);
     }
 };
